@@ -1,0 +1,4 @@
+<div class="alert" *ngIf="isVisible" [class]="message?.cssClass">
+  <span class="alert-icon" *ngIf="iconClass" [class]="iconClass"></span>
+  <p class="alert-message"> {{message?.text}} </p>
+</div>

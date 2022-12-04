@@ -1,0 +1,56 @@
+
+.alert {
+  width:20%;
+  padding: 1.5rem 1rem;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  text-transform:capitalize;
+  text-align: center;
+
+  .alert-icon,
+  .alert-message {
+    line-height: 22px;
+    vertical-align: middle;
+  }
+
+  .alert-icon {
+    flex: 0 0 18px;
+  }
+
+  .alert-message {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0 0.25rem;
+    word-break: break-all;
+  }
+
+  .alert-dismiss {
+    flex: 0 0 22px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  &.alert-success {
+    background: green;
+    color: white;
+
+    .alert-dismiss:hover {
+      color: white;
+    }
+  }
+
+  &.alert-danger {
+    background: red;
+    color: white;
+
+    .alert-dismiss:hover {
+      color: white;
+    }
+  }
+
+}

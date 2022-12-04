@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><a [routerLink]="['/']" style="text-decoration: none;color:white;">Energy Market Price</a></span>
+    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currUser">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" [routerLink]="['/']">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+      </div>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
