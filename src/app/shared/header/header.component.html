@@ -1,11 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span><a [routerLink]="['/']" style="text-decoration: none;color:white;">Energy Market Price</a></span>
-    <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currUser">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" [routerLink]="['/']">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <span>Energy Market Price</span>
+    {{currUser |json}}
+    <div class="actions-container" *ngIf="currUser">
+      <div class="actions">
+        <a [routerLink]="['/']"> List of Users </a>
+        <a [routerLink]="['/sign-up']">Create User</a>
+
       </div>
-    </nav>
+      <button mat-raised-button color="secondary" (click)="logout()">Logout</button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -9,7 +9,7 @@
           <mat-form-field class="form-group">
             <mat-label>Title</mat-label>
             <input matInput class="form-control" formControlName="title">
-            <mat-error *ngIf="formGroup.get('title')?.touched && formGroup.get('title')?.errors.required">
+            <mat-error *ngIf="formGroup.get('title')?.touched && formGroup.get('title')?.errors?.required">
               <span>Title is required</span></mat-error>
           </mat-form-field>
         </div>
@@ -17,7 +17,7 @@
           <mat-form-field class="form-group">
             <mat-label>Name</mat-label>
             <input matInput class="form-control" formControlName="name">
-            <mat-error *ngIf="formGroup.get('name')?.touched && formGroup.get('name')?.errors.required">
+            <mat-error *ngIf="formGroup.get('name')?.touched && formGroup.get('name')?.errors?.required">
               <span>Name is required</span>
             </mat-error>
           </mat-form-field>
@@ -28,7 +28,7 @@
           <mat-form-field class="form-group">
             <mat-label>Surname</mat-label>
             <input matInput class="form-control" formControlName="surname">
-            <mat-error *ngIf="formGroup.get('surname')?.touched && formGroup.get('surname')?.errors.required">
+            <mat-error *ngIf="formGroup.get('surname')?.touched && formGroup.get('surname')?.errors?.required">
               <span>Surname is required</span>
             </mat-error>
           </mat-form-field>
@@ -38,8 +38,8 @@
             <mat-label>Phone</mat-label>
             <input matInput formControlName="phone" type="number" class="form-control">
             <mat-error *ngIf="formGroup.get('phone')?.touched && formGroup.get('phone')?.invalid">
-              <span *ngIf="formGroup.get('phone')?.errors.required">Phone is required</span>
-              <span *ngIf="formGroup.get('phone')?.errors.pattern">Invalid phone number</span>
+              <span *ngIf="formGroup.get('phone')?.errors?.required">Phone is required</span>
+              <span *ngIf="formGroup.get('phone')?.errors?.pattern">Invalid phone number</span>
             </mat-error>
           </mat-form-field>
         </div>
@@ -50,8 +50,8 @@
             <mat-label>Email</mat-label>
             <input matInput type="text" formControlName="email" class="form-control">
             <mat-error *ngIf="formGroup.get('email')?.touched && formGroup.get('email')?.invalid">
-              <span *ngIf="formGroup.get('email')?.errors.required">Email is required</span>
-              <span *ngIf="formGroup.get('email')?.errors.pattern">Invalid email address</span>
+              <span *ngIf="formGroup.get('email')?.errors?.required">Email is required</span>
+              <span *ngIf="formGroup.get('email')?.errors?.pattern">Invalid email address</span>
             </mat-error>
           </mat-form-field>
         </div>
@@ -59,7 +59,7 @@
           <mat-form-field class="form-group">
             <mat-label>Address</mat-label>
             <input matInput type="text" class="form-control" formControlName="address">
-            <mat-error *ngIf="formGroup.get('address')?.touched && formGroup.get('address')?.errors.required">
+            <mat-error *ngIf="formGroup.get('address')?.touched && formGroup.get('address')?.errors?.required">
               <span>Address is required</span>
             </mat-error>
           </mat-form-field>
@@ -71,8 +71,8 @@
             <mat-label>Password</mat-label>
             <input matInput type="password" class="form-control" formControlName="password">
             <mat-error *ngIf="formGroup.get('password')?.touched && formGroup.get('password')?.invalid">
-              <span *ngIf="formGroup.get('password')?.errors.required">Password is required</span>
-              <span *ngIf="formGroup.get('password')?.errors.pattern">Invalid password</span>
+              <span *ngIf="formGroup.get('password')?.errors?.required">Password is required</span>
+              <span *ngIf="formGroup.get('password')?.errors?.pattern">Invalid password</span>
             </mat-error>
           </mat-form-field>
         </div>

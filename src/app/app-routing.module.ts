@@ -3,15 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {ListUsersComponent} from './components/list-users/list-users.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {UserViewComponent} from './components/user-view/user-view.component'
-import {AuthGuard} from '@angular/fire/auth-guard'
 import {LoginComponent} from './components/login/login.component'
+import {AuthGuard} from './core/auth.guard'
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch:'full'},
-  {path: 'login', component: LoginComponent},
+  {path: '', component:ListUsersComponent, canActivate:[AuthGuard]},
+  {path: 'login', component: LoginComponent, canActivate:[AuthGuard] },
   {path: 'sign-up', component: SignUpComponent},
-  {path: 'users', component: ListUsersComponent, canActivate: [AuthGuard]},
-  {path: 'user-view/:id', component: UserViewComponent}];
+  {path: 'user-view/:id', component: UserViewComponent},
+  { path: '**', redirectTo: '' }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

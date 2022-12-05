@@ -52,5 +52,13 @@
       color: white;
     }
   }
+  &.alert-info {
+    background: dodgerblue;
+    color: white;
+
+    .alert-dismiss:hover {
+      color: white;
+    }
+  }
 
 }

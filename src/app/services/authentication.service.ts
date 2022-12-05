@@ -15,8 +15,8 @@ export class AuthenticationService {
     this.currUser = angularFireAuth.authState;
   }
 
-  signUp(email: string, password:string) {
-  return  this.angularFireAuth
+  signUp(email: string, password: string) {
+    return this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res: any) => {
         console.log('You are Successfully signed up!', res);
@@ -26,20 +26,21 @@ export class AuthenticationService {
       });
   }
 
-
   signIn(email: string, password: string) {
-    return  this.angularFireAuth
+    return this.angularFireAuth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log(res);
-        console.log("You're in!");
+        console.log('You\'re in!');
       })
       .catch(err => {
         console.log(err);
-        console.log('Something went wrong:',err.message);
+        console.log('Something went wrong:', err.message);
       });
   }
-  signOut(){
+
+  signOut() {
+    localStorage.removeItem('user');
     this.angularFireAuth.signOut();
   }
 }

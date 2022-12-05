@@ -7,6 +7,7 @@ import {MatPaginator} from '@angular/material/paginator'
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
 import {AlertService} from '../../services/alert.service'
 import {ActivatedRoute, Router} from '@angular/router'
+import {AuthenticationService} from '../../services/authentication.service'
 
 @Component({
   selector: 'app-list-users',
@@ -29,7 +30,11 @@ export class ListUsersComponent implements OnInit {
   listOfUsers: User[] = [];
   currIndex: number;
 
-  constructor(private userService: UserService, private fb: FormBuilder, private alertService: AlertService, private router: Router) {
+  constructor(private userService: UserService, private fb: FormBuilder, private alertService: AlertService, private router: Router, private authenticationService: AuthenticationService) {
+    console.log(this.authenticationService.currUser)
+    if (!this.authenticationService.currUser) {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit() {
@@ -44,7 +49,7 @@ export class ListUsersComponent implements OnInit {
           })
         )
       )).subscribe((data: User[]) => {
-        this.formGroup = this.fb.group({
+      this.formGroup = this.fb.group({
 
         rows: this.fb.array(data.map((val: any) => this.fb.group({
             id: this.fb.control(val.id),
@@ -98,7 +103,7 @@ export class ListUsersComponent implements OnInit {
   }
 
   viewUser(i: any) {
-
+    console.log((this.formGroup.get('rows') as FormArray).at(i).value);
     this.router.navigate(['/user-view', {id: (this.formGroup.get('rows') as FormArray).at(i).value}]);
   }
 

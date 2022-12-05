@@ -44,5 +44,6 @@ export class SignUpComponent implements OnInit {
     setTimeout(() => {
       this.alertService.clear();
     }, 5000)
+
   }
 }

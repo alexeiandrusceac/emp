@@ -30,6 +30,9 @@ export class AlertComponent implements OnInit {
           case 'success':
             message.cssClass = 'alert alert-success';
             break;
+          case 'info':
+            message.cssClass = 'alert alert-info';
+            break;
           case 'error':
             message.cssClass = 'alert alert-danger';
             break;
@@ -47,6 +50,7 @@ export class AlertComponent implements OnInit {
   public get visible(): boolean {
     return this.isVisible;
   }
+
   public dismiss(): void {
     this.isVisible = !this.isVisible;
   }

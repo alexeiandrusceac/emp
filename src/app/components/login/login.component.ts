@@ -14,15 +14,14 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
   error: boolean;
+  returnUrl: string;
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
               private authenticationService: AuthenticationService,
               private alertService: AlertService,
               private router: Router) {
-    if (this.authenticationService.currUser) {
-      this.router.navigate(['/']);
-    }
+
   }
 
   ngOnInit(): void {
@@ -30,6 +29,7 @@ export class LoginComponent implements OnInit {
       email: this.fb.control('', [Validators.required, Validators.pattern(ValidatorsPattern.EMAIL)]),
       password: this.fb.control('', [Validators.required, Validators.pattern(ValidatorsPattern.PASSWORD)])
     })
+
   }
 
   submit() {
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .then(
         (data: any) => {
           console.log(data);
-          this.router.navigate(['/users']);
+          this.router.navigate(['']);
         }).catch(
       (error: any) => {
         console.log(error);

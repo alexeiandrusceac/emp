@@ -1,0 +1,24 @@
+.actions-container {
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content:end;
+
+  .actions >  a {
+    text-decoration: none;
+    color: gray;
+    margin: 4px;
+    font-size:12px;
+    font-weight:600;
+
+    a:hover{
+        color:white;
+    }
+  }
+  button{
+    align-items:end;
+    align-content: end;
+    cursor:pointer;
+  }
+}
+
